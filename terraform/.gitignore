@@ -1,3 +1,6 @@
+# Most importantly, ignore terraform exectable
+terraform.exe
+
 # Local .terraform directories
 .terraform/
 

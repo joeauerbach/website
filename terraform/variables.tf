@@ -1,8 +1,3 @@
-variable "env" {
-  description = "The target deployment environment"
-  type        = string
-}
-
 variable "project_id" {
   description = "The GCP project ID"
   type        = string
@@ -37,22 +32,28 @@ variable "admin_user_gmail_account" {
 
 variable "zone" {
   type    = string
-  default = "us-east1-a"
+  default = "us-east1-c"
 }
 
-variable "machine_type" {
-  type        = string
-  description = "VM size. Use e2-micro to stay in Free Tier, or e2-medium for basic production performance."
-  default     = "e2-medium" 
-}
-
-variable "network_tag" {
-  description = "the network tag to allow traffic"
-  type        = string
-}
-
-variable "active_stack" {
-  description = "Active environment: blue or green"
+variable "active_env" {
   type        = string
   default     = "blue"
+  description = "Controls which MIG receives production traffic. Allowed: 'blue' or 'green'"
+}
+
+variable "blue_theme_version" {
+  type        = string
+  default     = "twentytwentyfour"
+  description = "Theme checked out on the Blue environment"
+}
+
+variable "green_theme_version" {
+  type        = string
+  default     = "custom-premium-theme"
+  description = "Theme checked out on the Green environment"
+}
+
+variable "disk_image" {
+  type        = string
+  description = "the disk used to make the instances"
 }
